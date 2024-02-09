@@ -38,15 +38,16 @@ export const StoreModal = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      setLoading(true);
-      const response = await axios.post("/api/stores", values);
-      window.location.assign(`/${response.data.id}`);
-    } catch (error) {
-      toast.error("Something went wrong");
-    } finally {
-      setLoading(false);
-    }
+    // try {
+    //   setLoading(true);
+    //   const response = await axios.post("/api/stores", values);
+    //   window.location.assign(`/${response.data.id}`);
+    // } catch (error) {
+    //   toast.error("Something went wrong");
+    // } finally {
+    //   setLoading(false);
+    // }
+    console.log(onSubmit);
   };
 
   return (
@@ -69,7 +70,7 @@ export const StoreModal = () => {
                     <FormControl>
                       <Input
                         disabled={loading}
-                        placeholder="E-Commerce"
+                        placeholder="Name of store  e.g: Zara clothing"
                         {...field}
                       />
                     </FormControl>
