@@ -5,6 +5,7 @@ import * as React from "react";
 import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -19,7 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Modal } from "@/components/ui/modal";
 import { useStoreModal } from "@/hooks/use-store-modal";
-import { useForm } from "react-hook-form";
+import { Icons } from "@/components/icons";
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -38,16 +39,18 @@ export const StoreModal = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    // try {
-    //   setLoading(true);
-    //   const response = await axios.post("/api/stores", values);
-    //   window.location.assign(`/${response.data.id}`);
-    // } catch (error) {
-    //   toast.error("Something went wrong");
-    // } finally {
-    //   setLoading(false);
-    // }
-    console.log(onSubmit);
+    try {
+      setLoading(true);
+      const response = await axios.post("/api/stores", values);
+      window.location.assign(`/${response.data.id}`);
+
+      console.log(response.data);
+    } catch (error) {
+      toast.error("Something went wrong");
+    } finally {
+      setLoading(false);
+      toast.success("Store successfully created");
+    }
   };
 
   return (
@@ -87,6 +90,12 @@ export const StoreModal = () => {
                   Cancel
                 </Button>
                 <Button disabled={loading} type="submit">
+                  {loading && (
+                    <Icons.spinner
+                      className="w-4 h-4 mr-2 animate-spin"
+                      aria-hidden="true"
+                    />
+                  )}
                   Continue
                 </Button>
               </div>
