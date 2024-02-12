@@ -12,7 +12,7 @@ export default async function SetupLayout({
   const { userId } = auth();
 
   if (!userId) {
-    redirect("/sign-in");
+    redirect("/signin");
   }
 
   const store = await prismadb.store.findFirst({

@@ -16,10 +16,10 @@ export default function SignInPage() {
     <Shell className="max-w-lg">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center">
+          <CardTitle className="text-[1.1rem] lg:text-2xl font-medium tracking-[-0.03rem] whitespace-nowrap text-center">
             Welcome back admin
           </CardTitle>
-          <CardDescription className="text-center">
+          <CardDescription className="text-center text-[0.8rem] lg:text-[0.9375rem] tracking-[-0.00938rem] text-[#575757]">
             Enter your credentials to log in
           </CardDescription>
         </CardHeader>
