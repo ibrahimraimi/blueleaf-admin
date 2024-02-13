@@ -8,6 +8,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 export function catchClerkError(err: unknown) {
   const unknownErr = "Something went wrong, please try again later.";
 

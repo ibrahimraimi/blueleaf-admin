@@ -1,5 +1,5 @@
-import { ClipLoader } from "react-spinners";
+import { HashLoader } from "react-spinners";
 
 export function Loader() {
-  return <ClipLoader color="#3498db" size={50} />;
+  return <HashLoader color="#005aee" size={50} />;
 }
